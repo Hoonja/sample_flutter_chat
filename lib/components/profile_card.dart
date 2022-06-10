@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample_chat/screens/profile_screen.dart';
 import '../models/user.dart';
 
 class ProfileCard extends StatelessWidget {
@@ -9,11 +10,18 @@ class ProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ProfileScreen(user: user)),
+        );
+      },
       child: ListTile(
         leading: CircleAvatar(
           radius: 20,
-          backgroundImage: NetworkImage(user.backgroundImage,),
+          backgroundImage: NetworkImage(
+            user.backgroundImage,
+          ),
         ),
         title: Text(
           user.name,
